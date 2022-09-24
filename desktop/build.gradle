@@ -45,3 +45,18 @@ task dist(type: Jar) {
 dist.dependsOn classes
 
 eclipse.project.name = appName + "-desktop"
+
+task javaPackager(type: Exec, dependsOn: dist) {
+    workingDir project.projectDir
+    commandLine = [
+            'javapackager',
+            '-deploy',
+            '-nosign',
+            '-outdir', "${buildDir}/distribution",
+            '-srcdir', "${buildDir}/libs",
+            '-native', 'image',
+            '-name', project.appName,
+            '-appclass', project.mainClassName
+
+    ]
+}

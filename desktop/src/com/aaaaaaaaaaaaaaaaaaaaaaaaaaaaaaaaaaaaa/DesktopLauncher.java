@@ -8,7 +8,9 @@ import com.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.Demo;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setForegroundFPS(60);
+		config.setWindowedMode(960, 720);
+		config.useVsync(false);
+		config.setForegroundFPS(0);
 		config.setTitle("Demo");
 		new Lwjgl3Application(new Demo(), config);
 	}

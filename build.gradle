@@ -19,6 +19,12 @@ buildscript {
 allprojects {
     apply plugin: "eclipse"
 
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
     version = '1.0'
     ext {
         appName = "Demo"
